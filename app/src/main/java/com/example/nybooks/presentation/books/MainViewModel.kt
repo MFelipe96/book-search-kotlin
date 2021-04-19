@@ -15,7 +15,6 @@ class MainViewModel(private val repository: MainRepository) : ViewModel() {
 
     val booksList = MutableLiveData<Response<Results>>()
 
-
     fun getBooksFromRepository(){
         CoroutineScope(Dispatchers.Main).launch {
             val books = withContext(Dispatchers.Default){

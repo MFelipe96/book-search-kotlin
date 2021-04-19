@@ -1,5 +1,6 @@
 package com.example.nybooks.presentation.books
 
+import android.app.Activity
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,8 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +25,7 @@ class BooksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_books)
+        //val binding : ViewDataBinding? = DataBindingUtil.setContentView(this, R.layout.activity_books)
 
         toolbarMain.title = getString(R.string.actionBar_title)
         setSupportActionBar(toolbarMain)

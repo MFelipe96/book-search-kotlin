@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="book"
+            type="com.example.nybooks.data.model.Book"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginVertical="8dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{book.title}'
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:padding="8dp"
+                    tools:layout_editor_absoluteX="70dp"
+                    tools:layout_editor_absoluteY="192dp" />
+
+                <TextView
+                    android:id="@+id/authorText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{"Author(a): " + book.author ?? "Sem autor"}'
+                    android:textSize="20sp"
+                    android:padding="8dp"
+                    tools:layout_editor_absoluteX="88dp"
+                    tools:layout_editor_absoluteY="96dp" />
+
+                <TextView
+                    android:id="@+id/publisherText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{"Editora: " + book.publisher ?? "Sem editora"}'
+                    android:textSize="20sp"
+                    android:padding="8dp"
+                    tools:layout_editor_absoluteX="70dp"
+                    tools:layout_editor_absoluteY="192dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>
