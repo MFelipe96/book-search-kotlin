@@ -5,7 +5,7 @@ import com.example.nybooks.data.model.Results
 import retrofit2.Response
 import retrofit2.http.*
 
-interface Api {
+interface ApiService {
 
     @Headers("Accept: application/json", "Content-type:application/json")
     @GET("lists.json")

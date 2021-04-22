@@ -22,7 +22,7 @@ class BooksAdapter(
 
     override fun onBindViewHolder(holder: BooksViewHolder, position: Int) {
         holder.bind(books[position].bookDetails[0])
-    }
+     }
 
     class BooksViewHolder(private val binding: BookItemBinding) : RecyclerView.ViewHolder(binding.root){
 
