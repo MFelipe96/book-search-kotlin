@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-open class MainRepository {
+open class BookRepository {
 
     open suspend fun getBooks() : Response<Results> {
         return withContext(Dispatchers.Default){

@@ -2,18 +2,23 @@ package com.example.nybooks.presentation.books
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nybooks.R
-import com.example.nybooks.data.MainRepository
+import com.example.nybooks.data.BookRepository
+import com.example.nybooks.di.bookModule
 import kotlinx.android.synthetic.main.activity_books.*
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.android.logger.AndroidLogger
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.startKoin
 
 class BooksActivity : AppCompatActivity() {
 
-    private lateinit var viewModel : MainViewModel
+    private val viewModel : BookViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +27,6 @@ class BooksActivity : AppCompatActivity() {
         toolbarMain.title = getString(R.string.actionBar_title)
         setSupportActionBar(toolbarMain)
 
-        viewModel = ViewModelProvider(this, MainViewModel.MainViewModelFactory(MainRepository())).get(MainViewModel::class.java)
         viewModel.getBooksFromRepository()
         viewModel.booksList.observe(this, Observer {books ->
             with(recyclerBooks){

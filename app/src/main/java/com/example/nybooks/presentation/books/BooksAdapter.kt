@@ -1,6 +1,5 @@
 package com.example.nybooks.presentation.books
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,7 @@ class BooksAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BooksViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = BookItemBinding.inflate(inflater)
+        val binding = BookItemBinding.inflate(inflater, parent,  false)
         return BooksViewHolder(binding)
     }
 

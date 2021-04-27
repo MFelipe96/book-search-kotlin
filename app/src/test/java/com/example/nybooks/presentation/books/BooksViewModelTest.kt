@@ -2,7 +2,7 @@ package com.example.nybooks.presentation.books
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.example.nybooks.data.MainRepository
+import com.example.nybooks.data.BookRepository
 import com.example.nybooks.data.model.Book
 import com.example.nybooks.data.model.BookDetails
 import com.example.nybooks.data.model.Results
@@ -31,7 +31,7 @@ class BooksViewModelTest {
     @Mock
     private lateinit var booksLiveDataObserver: Observer<Results?>
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: BookViewModel
 
     @Test
     fun `when view model getBooks get success then sets booksList`(){
@@ -44,7 +44,7 @@ class BooksViewModelTest {
                 )
                 val booksDetails = listOf(BookDetails(books))
                 val mockRepo = MockRepository(Response.success(Results(booksDetails)))
-                viewModel = MainViewModel(mockRepo)
+                viewModel = BookViewModel(mockRepo)
                 viewModel.booksList.observeForever(booksLiveDataObserver)
 
                 //Act
@@ -58,6 +58,6 @@ class BooksViewModelTest {
     }
 }
 
-class MockRepository(private val result: Response<Results>) : MainRepository() {
+class MockRepository(private val result: Response<Results>) : BookRepository() {
     override suspend fun getBooks() : Response<Results> = result
 }
